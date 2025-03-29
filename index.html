@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quer casar comigo?</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe6f0, #d0eaff);
+    }
+
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      width: 400px;
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      min-width: 100px;
+    }
+
+    #simBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #simBtn:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    #moveButton {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
+    }
+
+    #moveButton:hover {
+      background-color: #c82333;
+    }
+  </style>
+
+  <script>
+    function sim() {
+      alert("💍 Claro que sim! te amo mozão 💖");
+    }
+
+    function nao() {
+      let certeza = prompt("Você tem certeza? Sim ou Não?");
+      while (certeza?.toLowerCase() !== "sim") {
+        certeza = prompt("Você tem certeza mesmo? Sim ou Não?");
+      }
+      alert("Tá bom então 😢");
+    }
+
+    window.onload = function () {
+      const moveButton = document.getElementById('moveButton');
+
+      moveButton.addEventListener('mouseover', function () {
+        this.style.position = 'absolute';
+        const maxTop = 80;
+        const maxLeft = 80;
+        this.style.top = Math.random() * maxTop + '%';
+        this.style.left = Math.random() * maxLeft + '%';
+      });
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Você quer casar comigo?</h1>
+    <div class="buttons">
+      <button id="simBtn" onclick="sim()">Sim</button>
+      <button id="moveButton" onclick="nao()">Não</button>
+    </div>
+  </div>
+</body>
+</html>
